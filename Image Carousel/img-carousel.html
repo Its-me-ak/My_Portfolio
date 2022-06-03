@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <title>Image Carousel with Javascript</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            width: 100%;
+            height: 100vh;
+        }
+
+        .img {
+            width: 100%;
+            height: 100vh;
+        }
+
+        .img img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .prev {
+            position: absolute;
+            top: 50%;
+            left: 10px;
+            transform: translateY(-50%);
+        }
+
+        .prev i {
+            padding: 10px 14px;
+            background-color: rgb(236, 202, 5);
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+
+        .next {
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            transform: translateY(-50%);
+        }
+
+        .next i {
+            padding: 10px 14px;
+            background-color: rgb(236, 202, 5);
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+
+        button {
+            border: none;
+            outline: none;
+            border-radius: 5px;
+        }
+
+        @media screen and (max-width:480px) {
+
+            .container {
+                width: 100%;
+                height: 100vh;
+            }
+
+            .img {
+                width: 100%;
+                height: 100vh;
+            }
+
+            .img img {
+                width: 100%;
+                height: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <section class="container">
+        <div class="img">
+            <img src="./img/av0.jpg" alt="img not found" id="imgs">
+        </div>
+        <button type="button" class="prev" id="prevBtn" onclick="prevImg();"><i
+                class="fa-solid fa-angles-left"></i></button>
+        <button type="button" class="next" id="nextBtn" onclick="nextImg();"><i
+                class="fa-solid fa-angles-right"></i></button>
+    </section>
+
+    <script>
+        let counter = 0;
+        function nextImg() {
+            counter++;
+            if (counter > 12) counter = 0;
+            console.log(counter);
+            document.querySelector("#imgs").src = "./img/av" + counter + ".jpg"
+        }
+
+        function prevImg() {
+            counter--;
+            if (counter < 0) counter = 12;
+            console.log(counter);
+            document.querySelector("#imgs").src = "./img/av" + counter + ".jpg"
+        }
+    </script>
+</body>
+
+</html>
